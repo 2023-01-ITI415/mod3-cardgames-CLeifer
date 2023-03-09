@@ -19,6 +19,7 @@ public class Prospector : MonoBehaviour
     private Deck deck;
     private JsonLayout jsonLayout;
 
+    private Dictionary<int, CardProspector> mineIdToCardDict;
     void Start()
     {
         if (S != null) Debug.LogError("Attempted to set S more than once!");
@@ -67,6 +68,8 @@ public class Prospector : MonoBehaviour
         }
         CardProspector cp;
 
+        mineIdToCardDict = new Dictionary<int, CardProspector>();
+
         foreach(JsonLayoutSlot slot in jsonLayout.slots)
         {
             cp = Draw();
@@ -84,6 +87,8 @@ public class Prospector : MonoBehaviour
             cp.SetSpriteSortingLayer(slot.layer);
 
             mine.Add(cp);
+
+            mineIdToCardDict.Add(slot.id, cp);
         }
     }
 
@@ -135,6 +140,26 @@ public class Prospector : MonoBehaviour
         }
     }
 
+    public void SetMineFaceUps()
+    {
+        CardProspector coverCP;
+        foreach(CardProspector cp in mine)
+        {
+            bool faceUp = true;
+
+            foreach(int coverID in cp.layoutSlot.hiddenBy)
+            {
+                coverCP = mineIdToCardDict[coverID];
+
+                if (coverCP == null || coverCP.state == eCardState.mine)
+                {
+                    faceUp = false;
+                }
+            }
+            cp.faceUp = faceUp;
+        }
+    }
+
     static public void CARD_CLICKED(CardProspector cp)
     {
         switch (cp.state)
@@ -153,6 +178,8 @@ public class Prospector : MonoBehaviour
                     S.mine.Remove(cp);
                     S.MoveToTarget(cp);
                     S.MoveToTarget(cp);
+
+                    S.SetMineFaceUps();
                 }
                 break;
         }
