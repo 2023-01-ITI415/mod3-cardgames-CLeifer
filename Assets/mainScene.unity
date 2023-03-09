@@ -940,6 +940,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawPile: []
+  discardPile: []
+  mine: []
+  target: {fileID: 0}
 --- !u!114 &1106381309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df4e775d94288d43b686a4a634c57bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonLayoutFile: {fileID: 0}
+  jsonLayoutFile: {fileID: 4900000, guid: 0579412819a174464adf828afde18c5f, type: 3}
   layout:
     multiplier: {x: 0, y: 0}
     slots: []
