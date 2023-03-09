@@ -25,6 +25,7 @@ public class JsonDeck
 }
 public class JsonParseDeck : MonoBehaviour
 {
+    private static JsonParseDeck S { get; set; }
     [Header("Inscribed")]
     public TextAsset jsonDeckFile;
 
@@ -33,6 +34,31 @@ public class JsonParseDeck : MonoBehaviour
 
     void Awake()
     {
+        if(S != null)
+        {
+            Debug.LogError("JsonParseDeck.S can't be set a 2nd time!");
+            return;
+        }
+        S = this;
+
         deck = JsonUtility.FromJson<JsonDeck>(jsonDeckFile.text);
+    }
+
+    static public List<JsonPip> DECORATORS
+    {
+        get
+        {
+            return S.deck.decorators;
+        }
+    }
+
+    static public JsonCard GET_CARD_DEF(int rank)
+    {
+        if((rank < 1)||(rank > S.deck.cards.Count))
+        {
+            Debug.LogWarning("Illegal rank argument: " + rank);
+            return null;
+        }
+        return S.deck.cards[rank - 1];
     }
 }
