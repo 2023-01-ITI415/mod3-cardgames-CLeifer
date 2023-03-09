@@ -134,4 +134,27 @@ public class Prospector : MonoBehaviour
             cp.SetSortingOrder(-10 * i);
         }
     }
+
+    static public void CARD_CLICKED(CardProspector cp)
+    {
+        switch (cp.state)
+        {
+            case eCardState.target: break;
+            case eCardState.drawpile:
+                S.MoveToTarget(S.Draw());
+                S.UpdateDrawPile();
+                break;
+            case eCardState.mine: bool validMatch = true;
+                if (!cp.faceUp) validMatch = false;
+                if (!cp.AdjacentTo(S.target)) validMatch = false;
+
+                if (validMatch)
+                {
+                    S.mine.Remove(cp);
+                    S.MoveToTarget(cp);
+                    S.MoveToTarget(cp);
+                }
+                break;
+        }
+    }
 }

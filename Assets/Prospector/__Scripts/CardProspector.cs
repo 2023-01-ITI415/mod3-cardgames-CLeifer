@@ -11,4 +11,9 @@ public class CardProspector : Card
     public List<CardProspector> hiddenBy = new List<CardProspector>();
     public int layoutID;
     public JsonLayoutSlot layoutSlot;
+
+    override public void OnMouseUpAsButton()
+    {
+        Prospector.CARD_CLICKED(this);
+    }
 }
