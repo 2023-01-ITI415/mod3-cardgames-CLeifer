@@ -816,6 +816,8 @@ GameObject:
   - component: {fileID: 1106381303}
   - component: {fileID: 1106381306}
   - component: {fileID: 1106381307}
+  - component: {fileID: 1106381309}
+  - component: {fileID: 1106381308}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -925,6 +927,45 @@ MonoBehaviour:
   startFaceUp: 1
   deckAnchor: {fileID: 0}
   cards: []
+--- !u!114 &1106381308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106381302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a79599e0d6cb104d869cf7f4d76128c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawPile: []
+--- !u!114 &1106381309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106381302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df4e775d94288d43b686a4a634c57bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonLayoutFile: {fileID: 0}
+  layout:
+    multiplier: {x: 0, y: 0}
+    slots: []
+    drawPile:
+      x: 0
+      y: 0
+      layer: 
+      xStagger: 0
+    discardPile:
+      x: 0
+      y: 0
+      layer: 
+      xStagger: 0
 --- !u!1 &1123803809
 GameObject:
   m_ObjectHideFlags: 0
