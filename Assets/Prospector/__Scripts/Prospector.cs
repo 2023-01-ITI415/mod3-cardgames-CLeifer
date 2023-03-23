@@ -23,6 +23,7 @@ public class Prospector : MonoBehaviour
     private JsonLayout jsonLayout;
 
     private Dictionary<int, CardProspector> mineIdToCardDict;
+
     void Start()
     {
         if (S != null) Debug.LogError("Attempted to set S more than once!");
@@ -192,6 +193,8 @@ public class Prospector : MonoBehaviour
 
         CardSpritesSO.RESET();
         Invoke("ReloadLevel", roundDelay);
+
+        UITextManager.GAME_OVER_UI(won);
     }
 
     void ReloadLevel()

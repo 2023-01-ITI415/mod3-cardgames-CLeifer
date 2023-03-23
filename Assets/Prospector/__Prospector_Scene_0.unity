@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 1735808036}
   - component: {fileID: 1735808037}
   - component: {fileID: 1735808038}
+  - component: {fileID: 1735808042}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: Untagged
@@ -1914,3 +1915,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1735808042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418470576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6056250c818e9dd4999a7ac147700c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverText: {fileID: 1319617860}
+  roundResultText: {fileID: 1347057337}
+  highScoreText: {fileID: 345289880}
+  _resultsUIFieldsVisible: 0
